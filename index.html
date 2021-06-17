@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta class="author" content="Bernardo Castán Martínez">
+    <title>Texto efecto Random</title>
+</head>
+<style>
+    *{
+        margin:0;
+        padding:0;
+        box-sizing: border-box;
+    }
+   
+    #contenedor{
+        width: 90%;
+        height: 100vh;
+        margin: auto;
+        display: flex;
+        flex-wrap: nowrap;
+        align-items: center;
+        justify-content: center;
+    }
+    span, div{
+        border-radius: 5px;
+        /* border: 1px solid white; */
+        /* background-color: rgb(133, 179, 179); */
+        font-size: 30pt;
+        width: 30pt;
+        text-align: center;
+        text-shadow: 0.1em 0.1em 0.2em black;
+    }
+</style>
+
+<body>
+    <div id="contenedor"></div>
+    <div id="mensaje"></div>
+</body>
+
+<script>
+    var cadena = "Una cadena de letras ;D";
+    var contenedor = document.getElementById("contenedor");
+    var letras = ['A','a','B','b','C','c','D','d','E','e','F','f','G','g','H','h','I','i','J','j','K','k','L','l','M','m','N','n','Ñ','ñ','O','o','P','p','Q','q','R','r','S','s','T','t','U','u','V','v','W','w','X','x','Y','y','Z','z'];
+    var longitud = letras.length;
+    var x = 0;
+    var i = 0;
+
+    var intervalo = new Array();
+
+    for ( i=0; i<cadena.length; i++){
+        var div = "";
+        div = document.createElement("div");
+        div.id = "Div"+i;
+        contenedor.appendChild(div);
+
+        var span = "";
+        span = document.createElement("span");
+        span.id = "Span"+i;
+        div.appendChild(span);
+    }
+
+for ( x=0; x<cadena.length; x++ ){
+    
+    intervalo[x] = setInterval(function b1(){ 
+        for (var i=0; i<cadena.length; i++){ 
+            var valor = Math.floor(Math.random()*longitud); 
+            try {document.getElementById('Span'+i).innerHTML = letras[valor];}
+            catch(err){}
+        }
+    }, 50);
+}
+
+i=0;
+var bucle = setInterval(function b2(){
+    clearInterval(intervalo[i]);
+    document.getElementById('Div'+i).innerHTML = cadena[i];
+    i++;
+    if (i==cadena.length){ clearInterval(bucle); }
+
+}, 500);
+
+</script>
+</html>
