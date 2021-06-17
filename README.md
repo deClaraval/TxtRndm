@@ -3,7 +3,7 @@ Simple efecto de texto en Html, CSS & Js / Simple text effect in Html, CSS & Js
 
 Comenzando 🚀
 
-Mira Deployment para probar el proyecto: Texto efecto Random !!
+Mira Deployment para probar el proyecto: <a href="https://declaraval.github.io/TxtRndm/"> Texto efecto Random !!</a>
 
 Pre-requisitos 📋 Se recomienda tener actualizado tu navegador web, Firefox, Chrome, Opera, Edge...
 
